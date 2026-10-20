@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Spotify exploratory data analysis by Levi Pigues, examining explicit-content labels, track duration, and release dates using Python and the Spotify Web API.">
+  <title>Spotify Data Analysis | Levi Pigues</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="./index.html">Levi Pigues.</a>
+
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./index.html#projects">Projects</a>
+        <a href="./about.html">About</a>
+        <a href="./blog.html">Writing</a>
+        <a href="https://github.com/lpigues-clt"
+           target="_blank"
+           rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-header wrap">
+      <p class="eyebrow">Exploratory Data Analysis · Python</p>
+
+      <h1>Spotify Explicit Content & Track Characteristics</h1>
+
+      <p class="lead">
+        Exploring explicit-content labels, track durations,
+        and release dates using data collected through the
+        Spotify Web API.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">pandas</span>
+        <span class="tag">Spotify Web API</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">Exploratory Analysis</span>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="./data/spotify_tracks.csv" download>
+          Download Dataset ↓
+        </a>
+
+        <a class="btn" href="./notebooks/spotify_analysis.ipynb"
+           target="_blank" rel="noopener noreferrer">
+          View Notebook ↗
+        </a>
+
+        <a class="btn" href="./index.html#projects">
+          All Projects →
+        </a>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">01 · Overview</p>
+        <h2>Project Summary</h2>
+      </div>
+
+      <div class="card content">
+        <p>
+          Streaming platforms contain extensive metadata
+          about recorded music. This project uses Spotify
+          track-level data to explore patterns in
+          explicit-content labels and other available
+          characteristics.
+        </p>
+
+        <p>
+          I collected a sample of 50 tracks across five
+          search-term groups and used Python to organize,
+          summarize, and visualize the results.
+        </p>
+
+        <p>
+          The goal was exploratory rather than predictive:
+          to understand the sampled tracks and identify
+          questions worth investigating with a larger,
+          more representative dataset.
+        </p>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">02 · Research Questions</p>
+        <h2>What I Wanted to Explore</h2>
+      </div>
+
+      <div class="card content">
+        <ul>
+          <li>
+            How frequently are tracks marked explicit
+            within the collected sample?
+          </li>
+          <li>
+            How do track durations vary across the sample?
+          </li>
+          <li>
+            What does the distribution of release dates
+            reveal about the tracks returned by the searches?
+          </li>
+          <li>
+            What limitations affect conclusions drawn
+            from Spotify API search results?
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">03 · Data Collection</p>
+        <h2>Source & Methodology</h2>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Data Source</h3>
+          <p>
+            Spotify Web API search results, collected
+            using Python.
+          </p>
+          <p class="metric">50 tracks · 5 search-term groups</p>
+        </div>
+
+        <div class="card">
+          <h3>Analysis Workflow</h3>
+          <p>
+            Retrieved track metadata, organized records
+            into a pandas DataFrame, examined available
+            fields, and generated exploratory summaries
+            and visualizations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">04 · Analysis</p>
+        <h2>Track Characteristics</h2>
+
+        <p>
+          The analysis focuses on the information
+          available in the collected track metadata.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Explicit-Content Labels</h3>
+          <p>
+            Compared the presence of Spotify's
+            explicit-content flag among sampled tracks.
+            The flag identifies Spotify's content
+            classification; it does not independently
+            measure lyrical themes or severity.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Track Duration</h3>
+          <p>
+            Examined duration values to understand
+            variation in song length within the sample.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Release Dates</h3>
+          <p>
+            Reviewed available release-date metadata
+            to explore the age distribution of the
+            sampled recordings.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Search Sampling</h3>
+          <p>
+            Considered how search terms and API results
+            influence which tracks appear in the dataset.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">05 · Interpretation</p>
+        <h2>What the Analysis Demonstrates</h2>
+      </div>
+
+      <div class="card content">
+        <p>
+          This project demonstrates an end-to-end
+          exploratory workflow: obtaining data from
+          an external API, preparing a structured
+          dataset, examining distributions, and
+          communicating limitations.
+        </p>
+
+        <p>
+          Because the dataset contains only 50 tracks
+          returned from selected search terms, its
+          descriptive results should not be interpreted
+          as representative of Spotify's full catalog.
+        </p>
+
+        <p>
+          Popularity scores were not available in the
+          collected data because of API access
+          restrictions. Consequently, this project
+          does not establish a relationship between
+          explicit content and track popularity.
+        </p>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">06 · Limitations</p>
+        <h2>Important Considerations</h2>
+      </div>
+
+      <div class="card content">
+        <ul>
+          <li>
+            Small sample size limits generalizability.
+          </li>
+          <li>
+            Search-term selection introduces sampling bias.
+          </li>
+          <li>
+            Spotify's explicit-content flag is a
+            categorical metadata field, not a direct
+            measure of lyrical content.
+          </li>
+          <li>
+            Popularity data was unavailable, preventing
+            a valid popularity comparison.
+          </li>
+          <li>
+            Results describe this sample rather than
+            establishing causal relationships.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">07 · Reproducibility</p>
+        <h2>Explore the Data & Code</h2>
+      </div>
+
+      <div class="card">
+        <p>
+          The project dataset and Jupyter notebook
+          are provided so visitors can inspect the
+          analysis and understand the workflow.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="./data/spotify_tracks.csv" download>
+            Download CSV ↓
+          </a>
+
+          <a class="btn" href="./notebooks/spotify_analysis.ipynb"
+             target="_blank" rel="noopener noreferrer">
+            View Jupyter Notebook ↗
+          </a>
+
+          <a class="btn" href="./index.html#projects">
+            Back to Projects →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>
+        © 2026 Levi Pigues.
+        Built with HTML, CSS, and GitHub Pages.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
