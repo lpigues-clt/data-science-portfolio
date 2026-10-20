@@ -4,302 +4,198 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Spotify exploratory data analysis by Levi Pigues, examining explicit-content labels, track duration, and release dates using Python and the Spotify Web API.">
+  <meta name="description" content="Exploratory analysis of Spotify track metadata using Python, pandas, and Matplotlib.">
   <title>Spotify Data Analysis | Levi Pigues</title>
   <link rel="stylesheet" href="./assets/style.css">
+  <style>
+    .case-section { margin: 2.5rem 0; }
+    .case-section h2 { margin-bottom: 1rem; }
+    .case-section p { line-height: 1.75; }
+    .chart-figure { margin: 1.5rem 0 2rem; }
+    .chart-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .chart-figure figcaption {
+      margin-top: .75rem;
+      font-size: .92rem;
+      line-height: 1.6;
+      color: #a9b7c9;
+    }
+    .case-note {
+      border-left: 3px solid #10b981;
+      padding: .85rem 1rem;
+      background: rgba(16,185,129,.06);
+      border-radius: 0 8px 8px 0;
+    }
+  </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="wrap">
     <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="./index.html">Levi Pigues.</a>
-
+      <a class="brand" href="./index.html">Levi Pigues</a>
       <div class="nav-links">
         <a href="./index.html">Home</a>
-        <a href="./index.html#projects">Projects</a>
         <a href="./about.html">About</a>
+        <a href="./spotify.html" aria-current="page">Spotify</a>
+        <a href="./ml-project.html">Housing ML</a>
         <a href="./blog.html">Writing</a>
-        <a href="https://github.com/lpigues-clt"
-           target="_blank"
-           rel="noopener noreferrer">GitHub ↗</a>
       </div>
     </nav>
   </header>
 
-  <main id="main">
-    <section class="page-header wrap">
-      <p class="eyebrow">Exploratory Data Analysis · Python</p>
-
-      <h1>Spotify Explicit Content & Track Characteristics</h1>
-
+  <main id="main" class="wrap">
+    <section class="page-header">
+      <p class="eyebrow">Exploratory Data Analysis · Python · Spotify API</p>
+      <h1>Exploring Spotify Track Metadata</h1>
       <p class="lead">
-        Exploring explicit-content labels, track durations,
-        and release dates using data collected through the
-        Spotify Web API.
+        An exploratory look at track duration, explicit-content labels,
+        and release dates across five Spotify search-term groups.
       </p>
-
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">pandas</span>
-        <span class="tag">Spotify Web API</span>
-        <span class="tag">Matplotlib</span>
-        <span class="tag">Exploratory Analysis</span>
-      </div>
-
       <div class="actions">
-        <a class="btn primary" href="./data/spotify_tracks.csv" download>
-          Download Dataset ↓
+        <a class="btn primary" href="./notebooks/spotify_analysis.ipynb" download>
+          Download Notebook
         </a>
-
-        <a class="btn" href="./notebooks/spotify_analysis.ipynb"
-           target="_blank" rel="noopener noreferrer">
-          View Notebook ↗
-        </a>
-
-        <a class="btn" href="./index.html#projects">
-          All Projects →
+        <a class="btn" href="./data/spotify_tracks.csv" download>
+          Download Dataset
         </a>
       </div>
     </section>
 
-    <section class="wrap">
-      <div class="section-heading">
-        <p class="eyebrow">01 · Overview</p>
-        <h2>Project Summary</h2>
-      </div>
-
-      <div class="card content">
-        <p>
-          Streaming platforms contain extensive metadata
-          about recorded music. This project uses Spotify
-          track-level data to explore patterns in
-          explicit-content labels and other available
-          characteristics.
-        </p>
-
-        <p>
-          I collected a sample of 50 tracks across five
-          search-term groups and used Python to organize,
-          summarize, and visualize the results.
-        </p>
-
-        <p>
-          The goal was exploratory rather than predictive:
-          to understand the sampled tracks and identify
-          questions worth investigating with a larger,
-          more representative dataset.
-        </p>
-      </div>
+    <section class="case-section">
+      <h2>Project Overview</h2>
+      <p>
+        I used the Spotify Web API to collect track metadata and explore
+        how song characteristics vary across search results. The dataset
+        contains up to 10 tracks from each of five search terms:
+        pop, hip hop, country, rock, and electronic.
+      </p>
+      <p>
+        Using Python, pandas, and Matplotlib, I cleaned the data,
+        summarized key attributes, and built visualizations to identify
+        patterns worth investigating further.
+      </p>
     </section>
 
-    <section class="wrap">
-      <div class="section-heading">
-        <p class="eyebrow">02 · Research Questions</p>
-        <h2>What I Wanted to Explore</h2>
-      </div>
-
-      <div class="card content">
-        <ul>
-          <li>
-            How frequently are tracks marked explicit
-            within the collected sample?
-          </li>
-          <li>
-            How do track durations vary across the sample?
-          </li>
-          <li>
-            What does the distribution of release dates
-            reveal about the tracks returned by the searches?
-          </li>
-          <li>
-            What limitations affect conclusions drawn
-            from Spotify API search results?
-          </li>
-        </ul>
-      </div>
+    <section class="case-section">
+      <h2>Data Collection and Preparation</h2>
+      <p>
+        The analysis focuses on track names, artists, search terms,
+        explicit-content labels, durations, and release dates.
+        I converted durations from milliseconds to minutes,
+        standardized explicit labels, and parsed release dates
+        for visualization.
+      </p>
+      <p class="case-note">
+        <strong>Sampling note:</strong> These are Spotify search-result
+        groups, not verified musical genres. The sample is small and
+        nonrandom, so the findings describe the collected tracks rather
+        than the full Spotify catalog.
+      </p>
     </section>
 
-    <section class="wrap">
-      <div class="section-heading">
-        <p class="eyebrow">03 · Data Collection</p>
-        <h2>Source & Methodology</h2>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Data Source</h3>
-          <p>
-            Spotify Web API search results, collected
-            using Python.
-          </p>
-          <p class="metric">50 tracks · 5 search-term groups</p>
-        </div>
-
-        <div class="card">
-          <h3>Analysis Workflow</h3>
-          <p>
-            Retrieved track metadata, organized records
-            into a pandas DataFrame, examined available
-            fields, and generated exploratory summaries
-            and visualizations.
-          </p>
-        </div>
-      </div>
+    <section class="case-section">
+      <h2>Track Duration</h2>
+      <p>
+        I compared track durations within each search-term group,
+        separating tracks by their explicit-content labels.
+        The box plots show differences in the distribution and spread
+        of durations across the collected records.
+      </p>
+      <figure class="chart-figure">
+        <img
+          src="./assets/spotify-duration.png"
+          alt="Box plots showing track durations across five Spotify search-term groups, separated by explicit-content label."
+          loading="lazy">
+        <figcaption>
+          Track duration distributions by search term and explicit label.
+          Small group sizes limit broader conclusions.
+        </figcaption>
+      </figure>
     </section>
 
-    <section class="wrap">
-      <div class="section-heading">
-        <p class="eyebrow">04 · Analysis</p>
-        <h2>Track Characteristics</h2>
-
-        <p>
-          The analysis focuses on the information
-          available in the collected track metadata.
-        </p>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <h3>Explicit-Content Labels</h3>
-          <p>
-            Compared the presence of Spotify's
-            explicit-content flag among sampled tracks.
-            The flag identifies Spotify's content
-            classification; it does not independently
-            measure lyrical themes or severity.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Track Duration</h3>
-          <p>
-            Examined duration values to understand
-            variation in song length within the sample.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Release Dates</h3>
-          <p>
-            Reviewed available release-date metadata
-            to explore the age distribution of the
-            sampled recordings.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Search Sampling</h3>
-          <p>
-            Considered how search terms and API results
-            influence which tracks appear in the dataset.
-          </p>
-        </article>
-      </div>
+    <section class="case-section">
+      <h2>Explicit-Content Labels</h2>
+      <p>
+        Next, I calculated the percentage of tracks marked explicit
+        within each search-term group. This provides a straightforward
+        comparison of Spotify's metadata labels across the sample.
+      </p>
+      <figure class="chart-figure">
+        <img
+          src="./assets/spotify-explicit-share.png"
+          alt="Bar chart showing the percentage of explicit-labeled tracks within each Spotify search-term group."
+          loading="lazy">
+        <figcaption>
+          Percentage of sampled tracks labeled explicit. The percentages
+          reflect search results, not genre-wide rates.
+        </figcaption>
+      </figure>
     </section>
 
-    <section class="wrap">
-      <div class="section-heading">
-        <p class="eyebrow">05 · Interpretation</p>
-        <h2>What the Analysis Demonstrates</h2>
-      </div>
-
-      <div class="card content">
-        <p>
-          This project demonstrates an end-to-end
-          exploratory workflow: obtaining data from
-          an external API, preparing a structured
-          dataset, examining distributions, and
-          communicating limitations.
-        </p>
-
-        <p>
-          Because the dataset contains only 50 tracks
-          returned from selected search terms, its
-          descriptive results should not be interpreted
-          as representative of Spotify's full catalog.
-        </p>
-
-        <p>
-          Popularity scores were not available in the
-          collected data because of API access
-          restrictions. Consequently, this project
-          does not establish a relationship between
-          explicit content and track popularity.
-        </p>
-      </div>
+    <section class="case-section">
+      <h2>Release Dates and Track Length</h2>
+      <p>
+        I also plotted track duration against release date to examine
+        how these attributes appear together in the sample. This view
+        helps identify individual observations and possible patterns
+        for a larger follow-up analysis.
+      </p>
+      <figure class="chart-figure">
+        <img
+          src="./assets/spotify-release-dates.png"
+          alt="Scatterplot comparing Spotify track release dates and durations, colored by search term."
+          loading="lazy">
+        <figcaption>
+          Track duration versus release date, grouped by the original
+          Spotify search terms.
+        </figcaption>
+      </figure>
     </section>
 
-    <section class="wrap">
-      <div class="section-heading">
-        <p class="eyebrow">06 · Limitations</p>
-        <h2>Important Considerations</h2>
-      </div>
-
-      <div class="card content">
-        <ul>
-          <li>
-            Small sample size limits generalizability.
-          </li>
-          <li>
-            Search-term selection introduces sampling bias.
-          </li>
-          <li>
-            Spotify's explicit-content flag is a
-            categorical metadata field, not a direct
-            measure of lyrical content.
-          </li>
-          <li>
-            Popularity data was unavailable, preventing
-            a valid popularity comparison.
-          </li>
-          <li>
-            Results describe this sample rather than
-            establishing causal relationships.
-          </li>
-        </ul>
-      </div>
+    <section class="case-section">
+      <h2>Key Takeaways</h2>
+      <p>
+        This project strengthened my experience with API-based data
+        collection, cleaning, exploratory analysis, and communicating
+        results through visualizations. It also reinforced the
+        importance of understanding how a dataset was sampled before
+        making general claims.
+      </p>
+      <p>
+        The analysis does not evaluate Spotify popularity scores,
+        and the explicit-content flag is treated as a platform label
+        rather than an independent assessment of lyrics.
+      </p>
     </section>
 
-    <section class="wrap">
-      <div class="section-heading">
-        <p class="eyebrow">07 · Reproducibility</p>
-        <h2>Explore the Data & Code</h2>
-      </div>
-
-      <div class="card">
-        <p>
-          The project dataset and Jupyter notebook
-          are provided so visitors can inspect the
-          analysis and understand the workflow.
-        </p>
-
-        <div class="actions">
-          <a class="btn primary" href="./data/spotify_tracks.csv" download>
-            Download CSV ↓
-          </a>
-
-          <a class="btn" href="./notebooks/spotify_analysis.ipynb"
-             target="_blank" rel="noopener noreferrer">
-            View Jupyter Notebook ↗
-          </a>
-
-          <a class="btn" href="./index.html#projects">
-            Back to Projects →
-          </a>
-        </div>
+    <section class="case-section">
+      <h2>Limitations and Next Steps</h2>
+      <p>
+        The dataset is limited to a small number of search results.
+        Tracks may appear in multiple groups, and search rankings can
+        influence which songs are included. A larger, documented
+        sampling strategy and duplicate-track review would support
+        stronger comparisons.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="./notebooks/spotify_analysis.ipynb" download>
+          Explore the Python Notebook
+        </a>
+        <a class="btn" href="./ml-project.html">
+          View Housing ML Project
+        </a>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <p>
-        © 2026 Levi Pigues.
-        Built with HTML, CSS, and GitHub Pages.
-      </p>
-    </div>
+  <footer class="wrap">
+    <p>© 2026 Levi Pigues · Built with HTML, CSS, and GitHub Pages.</p>
   </footer>
 </body>
 </html>
