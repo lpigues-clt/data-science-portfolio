@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Project notes and reflections by Levi Pigues on data science, exploratory analysis, machine learning, and data quality.">
+  <title>Writing & Project Notes | Levi Pigues</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="./index.html">Levi Pigues.</a>
+
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./index.html#projects">Projects</a>
+        <a href="./about.html">About</a>
+        <a href="./blog.html" aria-current="page">Writing</a>
+        <a href="https://github.com/lpigues-clt"
+           target="_blank"
+           rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-header wrap">
+      <p class="eyebrow">Writing · Learning · Reflection</p>
+
+      <h1>Writing & Project Notes</h1>
+
+      <p class="lead">
+        Notes on the methods, challenges, and lessons
+        behind my data science projects. I use this
+        space to document how I approach analytical
+        questions and improve my technical work.
+      </p>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">Project Reflections</p>
+        <h2>What I've Been Learning</h2>
+        <p>
+          Short reflections connected to the projects
+          featured in this portfolio.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="project">
+          <p class="eyebrow">Data Quality · Machine Learning</p>
+
+          <h3>Why Data Validation Comes Before Model Accuracy</h3>
+
+          <p>
+            My county home value prediction project
+            highlighted the importance of checking
+            source data before trusting model metrics.
+            Census API datasets can contain special
+            missing-value codes that require careful
+            treatment during cleaning.
+          </p>
+
+          <p>
+            A high R² score is only meaningful when
+            the dataset, feature calculations, and
+            evaluation process are valid. My next
+            step is to rerun the analysis after
+            verifying those inputs.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Data Cleaning</span>
+            <span class="tag">Regression</span>
+            <span class="tag">Model Evaluation</span>
+          </div>
+
+          <a href="./ml-project.html">
+            Explore the Housing Project →
+          </a>
+        </article>
+
+        <article class="project">
+          <p class="eyebrow">APIs · Exploratory Analysis</p>
+
+          <h3>What a Small Spotify Dataset Can—and Cannot—Tell Us</h3>
+
+          <p>
+            My Spotify project used a sample of 50
+            tracks to explore explicit-content labels,
+            duration, and release-date metadata.
+            It gave me experience collecting data
+            through an API and analyzing it with Python.
+          </p>
+
+          <p>
+            It also reinforced the importance of
+            sampling limitations. Search results
+            are not a random sample of all music,
+            and unavailable popularity fields
+            prevent conclusions about whether
+            explicit tracks are more popular.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Spotify API</span>
+            <span class="tag">pandas</span>
+            <span class="tag">Sampling Bias</span>
+          </div>
+
+          <a href="./spotify.html">
+            Explore the Spotify Project →
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">My Approach</p>
+        <h2>Principles I Apply to Data Projects</h2>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Start With a Clear Question</h3>
+          <p>
+            Define what the analysis is trying to
+            answer before selecting techniques
+            or building models.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Understand the Data</h3>
+          <p>
+            Examine sources, missing values,
+            distributions, and potential biases
+            before interpreting results.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Compare Against a Baseline</h3>
+          <p>
+            Evaluate whether a more complex
+            method provides meaningful improvement
+            over a simpler alternative.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Communicate Limitations</h3>
+          <p>
+            Explain what findings support,
+            what remains uncertain, and
+            what additional work is needed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="card">
+        <p class="eyebrow">Continue Exploring</p>
+        <h2>See the Projects Behind These Notes</h2>
+
+        <p>
+          Each case study explains the project
+          question, data source, methodology,
+          findings, and limitations.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="./ml-project.html">
+            Housing ML Project →
+          </a>
+
+          <a class="btn" href="./spotify.html">
+            Spotify Analysis →
+          </a>
+
+          <a class="btn" href="./index.html">
+            Back to Homepage →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>
+        © 2026 Levi Pigues.
+        Built with HTML, CSS, and GitHub Pages.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
