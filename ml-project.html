@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Machine learning case study by Levi Pigues predicting U.S. county median home values using Census ACS data and regression models.">
+  <title>U.S. County Home Value Prediction | Levi Pigues</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="./index.html">Levi Pigues.</a>
+
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./index.html#projects">Projects</a>
+        <a href="./about.html">About</a>
+        <a href="./blog.html">Writing</a>
+        <a href="https://github.com/lpigues-clt"
+           target="_blank"
+           rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-header wrap">
+      <p class="eyebrow">Machine Learning · Regression</p>
+
+      <h1>Predicting U.S. County Home Values</h1>
+
+      <p class="lead">
+        Exploring how income, population, and educational
+        attainment relate to county-level median home
+        values using U.S. Census data and supervised
+        machine learning.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">pandas</span>
+        <span class="tag">scikit-learn</span>
+        <span class="tag">Census API</span>
+        <span class="tag">Regression</span>
+        <span class="tag">Random Forest</span>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary"
+           href="./data/county_data_clean.csv" download>
+          Download County Dataset ↓
+        </a>
+
+        <a class="btn"
+           href="./notebooks/ml_project.ipynb"
+           target="_blank" rel="noopener noreferrer">
+          View Notebook ↗
+        </a>
+
+        <a class="btn" href="./index.html#projects">
+          All Projects →
+        </a>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">01 · Overview</p>
+        <h2>Project Summary</h2>
+      </div>
+
+      <div class="card content">
+        <p>
+          Housing values vary considerably across U.S.
+          counties. This project investigates whether
+          selected socioeconomic indicators can help
+          explain and predict county-level median
+          owner-occupied home values.
+        </p>
+
+        <p>
+          Using the 2023 American Community Survey
+          five-year estimates, I assembled a dataset
+          containing 3,216 county and county-equivalent
+          records and compared multiple regression
+          approaches.
+        </p>
+
+        <p>
+          The project emphasizes the complete modeling
+          workflow: data collection, cleaning, feature
+          preparation, model training, evaluation,
+          and interpretation.
+        </p>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">02 · Research Question</p>
+        <h2>Can Socioeconomic Data Predict Home Values?</h2>
+      </div>
+
+      <div class="card content">
+        <p>
+          The central question is whether county-level
+          median household income, population, and
+          bachelor's degree attainment can provide
+          useful predictive information about median
+          owner-occupied home values.
+        </p>
+
+        <p>
+          This is a predictive modeling exercise,
+          not a causal analysis. Relationships between
+          the variables do not establish that changes
+          in any single feature cause changes in
+          housing prices.
+        </p>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">03 · Dataset</p>
+        <h2>Data Collection & Features</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Data Source</h3>
+          <p>
+            U.S. Census Bureau, 2023 American Community
+            Survey five-year estimates, accessed
+            through the Census API.
+          </p>
+          <p class="metric">
+            3,216 county and county-equivalent records
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Target Variable</h3>
+          <p>
+            Median value of owner-occupied housing
+            units at the county level.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Predictor Variables</h3>
+          <p>
+            Median household income, population,
+            and percentage of adults with a
+            bachelor's degree or higher.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Preparation</h3>
+          <p>
+            Converted API responses into numeric
+            variables, prepared model features,
+            and evaluated data quality before
+            model training.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">04 · Modeling</p>
+        <h2>Models Compared</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Mean Baseline</h3>
+          <p>
+            A simple reference model that predicts
+            the average training-set home value.
+            This establishes a baseline for
+            evaluating more sophisticated methods.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Linear Regression</h3>
+          <p>
+            Models home values as a linear combination
+            of the selected socioeconomic predictors.
+            Provides an interpretable comparison
+            against the baseline.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Random Forest Regression</h3>
+          <p>
+            An ensemble of decision trees that can
+            capture nonlinear relationships and
+            interactions among predictors.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Evaluation</h3>
+          <p>
+            Compared predictive performance using
+            root mean squared error (RMSE) and
+            coefficient of determination (R²).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">05 · Results</p>
+        <h2>Model Evaluation</h2>
+      </div>
+
+      <div class="card content">
+        <h3>Preliminary Findings</h3>
+
+        <p>
+          The original project reported stronger
+          predictive performance from random forest
+          regression than from linear regression.
+          However, the source data requires an
+          additional quality-control review.
+        </p>
+
+        <p>
+          Some Census API fields can contain special
+          negative codes representing missing or
+          unavailable estimates. These must be
+          handled correctly before the final model
+          metrics can be considered reliable.
+        </p>
+
+        <p class="metric">
+          Final RMSE and R² results pending
+          data-quality verification and model rerun.
+        </p>
+
+        <p>
+          Once the dataset has been validated and
+          the models rerun, this section will
+          report the confirmed performance metrics.
+        </p>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">06 · Interpretation</p>
+        <h2>What the Project Demonstrates</h2>
+      </div>
+
+      <div class="card content">
+        <p>
+          The project demonstrates how public
+          socioeconomic data can be integrated
+          into a supervised machine learning
+          workflow.
+        </p>
+
+        <p>
+          It also illustrates why data validation
+          is essential: a model can produce
+          numerical evaluation metrics even when
+          the underlying dataset contains
+          invalid or missing-value codes.
+        </p>
+
+        <p>
+          A responsible modeling process requires
+          checking source values, verifying feature
+          calculations, and confirming that
+          reported performance is reproducible.
+        </p>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">07 · Limitations</p>
+        <h2>Important Considerations</h2>
+      </div>
+
+      <div class="card content">
+        <ul>
+          <li>
+            County-level aggregates do not represent
+            individual households or properties.
+          </li>
+          <li>
+            The model uses a limited number of
+            socioeconomic predictors.
+          </li>
+          <li>
+            Census estimates have sampling
+            uncertainty and may contain missing
+            or suppressed values.
+          </li>
+          <li>
+            Geographic variation and omitted
+            factors may influence model accuracy.
+          </li>
+          <li>
+            The analysis identifies predictive
+            associations, not causal effects.
+          </li>
+          <li>
+            Final performance claims require
+            rerunning the models after data validation.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">08 · Reproducibility</p>
+        <h2>Explore the Dataset & Code</h2>
+      </div>
+
+      <div class="card">
+        <p>
+          The cleaned county dataset, model
+          comparison results, and Jupyter
+          notebook will be available in this
+          repository for review.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary"
+             href="./data/county_data_clean.csv" download>
+            Download County Data ↓
+          </a>
+
+          <a class="btn"
+             href="./data/model_comparison.csv" download>
+            Download Model Comparison ↓
+          </a>
+
+          <a class="btn"
+             href="./notebooks/ml_project.ipynb"
+             target="_blank" rel="noopener noreferrer">
+            View Notebook ↗
+          </a>
+
+          <a class="btn"
+             href="./index.html#projects">
+            Back to Projects →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>
+        © 2026 Levi Pigues.
+        Built with HTML, CSS, and GitHub Pages.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
