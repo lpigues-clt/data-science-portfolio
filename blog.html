@@ -60,19 +60,42 @@
 
           <p>
             My county home value prediction project
-            highlighted the importance of checking
+            reinforced the importance of validating
             source data before trusting model metrics.
-            Census API datasets can contain special
-            missing-value codes that require careful
-            treatment during cleaning.
+            During my review, I identified Census
+            missing-value codes that needed to be
+            excluded and corrected the denominator
+            used to calculate bachelor's degree
+            attainment rates.
           </p>
 
           <p>
-            A high R² score is only meaningful when
-            the dataset, feature calculations, and
-            evaluation process are valid. My next
-            step is to rerun the analysis after
-            verifying those inputs.
+            After correcting the data preparation
+            process, I reran the analysis using
+            3,215 counties and county equivalents
+            from the 2023 American Community Survey.
+            I compared a mean baseline, linear
+            regression, and random forest on the
+            same held-out test set.
+          </p>
+
+          <p>
+            The random forest achieved an R² of 0.735
+            and an RMSE of approximately $72,317,
+            compared with a baseline RMSE of
+            approximately $141,021. This represented
+            a 48.7% reduction in test RMSE relative
+            to the baseline.
+          </p>
+
+          <p>
+            The larger lesson was that model
+            performance is only useful when the
+            underlying dataset, feature definitions,
+            and evaluation process are trustworthy.
+            The final results describe one train-test
+            split and do not establish causal
+            relationships.
           </p>
 
           <div class="tags">
